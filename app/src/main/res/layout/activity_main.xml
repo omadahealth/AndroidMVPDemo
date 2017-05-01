@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mvp.moviedbapi.activities.MainActivity">
+
+    <EditText
+        android:id="@+id/main_activity_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text_hint"
+        android:maxLines="1"/>
+
+    <Button
+        android:id="@+id/main_activity_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_activity_edit_text"
+        android:layout_centerHorizontal="true"
+        android:text="@string/button_search_text"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/main_activity_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_activity_next_page_button"
+        android:layout_below="@+id/main_activity_search_button"/>
+
+    <Button
+        android:id="@+id/main_activity_next_page_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/button_next_page_text"
+        android:visibility="gone"/>
+
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MovieDbApi</string>
+    <string name="edit_text_hint">Search for a movie</string>
+    <string name="button_search_text">Search</string>
+    <string name="button_next_page_text">Next Page</string>
+    <string name="search_error_text">An error happened</string>
+    <string name="search_error_no_text">You have to type a search</string>
+</resources>

@@ -1,0 +1,78 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.6.0'
+    }
+}
+
+// Required because retrolambda is on maven central
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.mvp.moviedbapi"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Retrofit + adapter and converter
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+
+    //RxAndroid
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.2.10'
+
+    //Gson
+    compile 'com.google.code.gson:gson:2.7'
+
+    //Picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    //Mockito
+    debugCompile 'org.mockito:mockito-core:2.7.17'
+    debugCompile "com.google.dexmaker:dexmaker:1.2"
+    debugCompile "com.linkedin.dexmaker:dexmaker-mockito:2.2.0"
+
+    //Android dependencies
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}
+
+retrolambda {
+    javaVersion JavaVersion.VERSION_1_7
+}
