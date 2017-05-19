@@ -1,20 +1,6 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'me.tatarka:gradle-retrolambda:3.6.0'
-    }
-}
-
-// Required because retrolambda is on maven central
-repositories {
-    mavenCentral()
-}
-
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 25
@@ -34,10 +20,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 }
 
 dependencies {
@@ -53,26 +35,26 @@ dependencies {
     compile 'io.reactivex:rxjava:1.2.10'
 
     //Gson
-    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.google.code.gson:gson:2.8.0'
 
     //Picasso
     compile 'com.squareup.picasso:picasso:2.5.2'
 
-    //Mockito
-    debugCompile 'org.mockito:mockito-core:2.7.17'
-    debugCompile "com.google.dexmaker:dexmaker:1.2"
-    debugCompile "com.linkedin.dexmaker:dexmaker-mockito:2.2.0"
-
-    //Android dependencies
+    //Espresso + Mockito
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    androidTestCompile 'org.mockito:mockito-core:2.7.21'
+    androidTestCompile "com.linkedin.dexmaker:dexmaker-mockito:2.2.0"
+    androidTestCompile "com.nhaarman:mockito-kotlin:1.4.0"
+
+    //Android dependencies
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
-
-retrolambda {
-    javaVersion JavaVersion.VERSION_1_7
+repositories {
+    mavenCentral()
 }

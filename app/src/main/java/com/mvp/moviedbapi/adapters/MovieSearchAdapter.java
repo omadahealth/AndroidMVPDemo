@@ -7,15 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.mvp.moviedbapi.R;
-import com.mvp.moviedbapi.models.apis.SearchResults;
 import com.mvp.moviedbapi.constants.Urls;
+import com.mvp.moviedbapi.models.apis.SearchResults;
 import com.squareup.picasso.Picasso;
-
-import static com.mvp.moviedbapi.constants.Urls.IMAGE_SIZE_HD;
 
 /**
  * Created by olivier.goutay on 4/18/17.
- * The adapter for {@link com.mvp.moviedbapi.activities.MainActivity#mRecyclerView}
+ * The adapter for {@link com.mvp.moviedbapi.activities.MainActivity} recycler view
  */
 public class MovieSearchAdapter extends RecyclerView.Adapter<MovieSearchAdapter.ViewHolder> {
 
@@ -81,7 +79,7 @@ public class MovieSearchAdapter extends RecyclerView.Adapter<MovieSearchAdapter.
 
         //TODO handle different phone resolutions (download images which sizes are close to the device resolution, for better performances)
         StringBuilder stringBuilder = new StringBuilder(Urls.IMAGE_BASE_URL);
-        stringBuilder.append(IMAGE_SIZE_HD).append(mSearchResults.getResults().get(position).getPosterPath());
+        stringBuilder.append(Urls.IMAGE_SIZE_HD).append(mSearchResults.getResults().get(position).getPosterPath());
         return stringBuilder.toString();
     }
 

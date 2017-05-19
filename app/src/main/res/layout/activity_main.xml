@@ -7,29 +7,29 @@
     tools:context="com.mvp.moviedbapi.activities.MainActivity">
 
     <EditText
-        android:id="@+id/main_activity_edit_text"
+        android:id="@+id/edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/edit_text_hint"
         android:maxLines="1"/>
 
     <Button
-        android:id="@+id/main_activity_search_button"
+        android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/main_activity_edit_text"
+        android:layout_below="@+id/edittext"
         android:layout_centerHorizontal="true"
         android:text="@string/button_search_text"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_activity_recycler_view"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/main_activity_next_page_button"
-        android:layout_below="@+id/main_activity_search_button"/>
+        android:layout_above="@+id/nextButton"
+        android:layout_below="@+id/searchButton"/>
 
     <Button
-        android:id="@+id/main_activity_next_page_button"
+        android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -1,17 +1,17 @@
-package com.mvp.moviedbapi.interfaces;
+package com.mvp.moviedbapi.interfaces
 
 /**
  * Created by olivier.goutay on 4/28/17.
  */
-public interface BasePresenter<T> {
+interface BasePresenter<in T> {
 
     /**
      * Called when the view is created and wants to attach its presenter
      */
-    void attach(T view);
+    fun attach(view: T)
 
     /**
      * Called when the view is destroyed to get rid of its presenter
      */
-    void detach();
+    fun detach()
 }
